@@ -9,6 +9,7 @@ Build and maintain Mazen Awwad's portfolio using only user-provided facts. Make 
 ## Required Checks
 
 - Read `.codex/project/portfolio-brief.md` before making portfolio content or architecture changes.
+- Use `.codex/skills/portfolio-writing/SKILL.md` whenever visible portfolio copy, metadata, labels, or accessibility text changes.
 - Check `src/content/portfolio.ts` before editing UI components.
 - Ask Mazen before adding any public links, project URLs, photos, testimonials, or metrics not already approved in the project brief.
 - Run `npm.cmd run lint` and `npm.cmd run build` after code changes when practical.

@@ -24,6 +24,7 @@ export function CareerTimeline({
       subtitle: `${item.company}${item.product ? ` / ${item.product}` : ""}`,
       description: item.context ?? item.highlights.join(" "),
       kind: "Experience",
+      technologies: item.technologies,
     })),
     ...education.map((item) => ({
       period: item.period,
@@ -35,9 +36,9 @@ export function CareerTimeline({
     ...projects.map((item) => ({
       period: "Academic project",
       title: item.name,
-      subtitle: item.stack.join(" · "),
       description: item.description,
       kind: "Project",
+      technologies: item.stack,
     })),
   ];
 
@@ -46,7 +47,7 @@ export function CareerTimeline({
       <ScrollReveal>
         <header className="section-heading">
           <p className="eyebrow">Career timeline</p>
-          <h2>A continuous line through the work.</h2>
+          <h2>Work, education, and projects.</h2>
         </header>
       </ScrollReveal>
       <TimelineTrack entries={entries} />

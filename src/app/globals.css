@@ -22,8 +22,9 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: Arial, Helvetica, sans-serif;
-  --font-mono: "Cascadia Mono", Consolas, monospace;
+  --font-display: var(--font-playfair);
+  --font-sans: "IBM Plex Sans Variable";
+  --font-mono: var(--font-geist-mono);
 }
 
 * {
@@ -40,7 +41,7 @@ body {
   overflow-x: clip;
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "IBM Plex Sans Variable", Arial, Helvetica, sans-serif;
   font-size: 16px;
   line-height: 1.6;
 }
@@ -93,6 +94,12 @@ h1,
 h2,
 h3 {
   text-wrap: balance;
+}
+
+h1,
+h2 {
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  font-weight: 800;
 }
 
 p {
@@ -172,13 +179,24 @@ main :where(h1, h2, h3, p, a, span, li) {
   position: absolute;
   top: var(--icon-y);
   left: var(--icon-x);
-  width: clamp(34px, 4vw, 64px);
-  height: clamp(34px, 4vw, 64px);
+  width: clamp(46px, 5.4vw, 88px);
+  height: clamp(46px, 5.4vw, 88px);
   color: var(--icon-color);
   filter: drop-shadow(0 0 12px var(--icon-glow));
   translate: -50% -50%;
   transform-style: preserve-3d;
+  transition:
+    top 1450ms var(--ease-out),
+    left 1450ms var(--ease-out),
+    filter 900ms var(--ease-out);
   will-change: transform, opacity;
+}
+
+body:has(.hero-cinematic:not(.is-settled)) .depth-icon,
+body.is-at-page-top .depth-icon {
+  top: var(--intro-icon-y);
+  left: var(--intro-icon-x);
+  filter: drop-shadow(0 0 20px var(--icon-glow));
 }
 
 .depth-icon-drift {
@@ -186,6 +204,7 @@ main :where(h1, h2, h3, p, a, span, li) {
   width: 100%;
   height: 100%;
   animation: icon-drift var(--drift-duration) ease-in-out var(--drift-delay) infinite;
+  transform-origin: center;
   will-change: transform;
 }
 
@@ -235,7 +254,7 @@ main :where(h1, h2, h3, p, a, span, li) {
   width: 42px;
   border-radius: 4px;
   background: var(--emerald-deep);
-  font-family: "Cascadia Mono", Consolas, monospace;
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
   font-size: 0.78rem;
   font-weight: 800;
 }
@@ -257,7 +276,9 @@ main :where(h1, h2, h3, p, a, span, li) {
   border-radius: 4px;
   color: var(--muted-strong);
   padding: 0 14px;
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
   font-size: 0.84rem;
+  font-weight: 650;
   isolation: isolate;
   transition:
     color 180ms var(--ease-out),
@@ -291,6 +312,7 @@ main :where(h1, h2, h3, p, a, span, li) {
   background: rgba(13, 92, 63, 0.3);
   padding: 0 14px;
   color: var(--emerald-bright);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
   font-size: 0.84rem;
   font-weight: 700;
 }
@@ -312,37 +334,44 @@ main {
   display: flex;
   min-height: 100svh;
   align-items: center;
+  justify-content: center;
   padding: calc(var(--header-height) + 72px) 0 96px;
+  text-align: center;
 }
 
 .hero-copy {
   position: relative;
   z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   max-width: 980px;
 }
 
 .eyebrow {
   margin-bottom: 18px;
   color: var(--emerald-bright);
-  font-family: "Cascadia Mono", Consolas, monospace;
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
   font-size: 0.76rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0;
   text-transform: uppercase;
 }
 
 .hero h1 {
-  max-width: 950px;
+  max-width: 1120px;
   margin-bottom: 20px;
-  font-size: clamp(4rem, 11vw, 9rem);
-  line-height: 0.88;
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  font-size: clamp(4.5rem, 11vw, 9.5rem);
+  font-weight: 800;
+  line-height: 0.82;
   letter-spacing: 0;
 }
 
 .hero-name {
   position: relative;
   opacity: 0;
-  transform-origin: left center;
+  transform-origin: center;
   transition: opacity 120ms ease-out;
   will-change: transform;
 }
@@ -393,21 +422,6 @@ body:has(.hero-cinematic:not(.is-settled)) .site-header {
     visibility 480ms var(--ease-out);
 }
 
-.role {
-  margin-bottom: 26px;
-  color: var(--emerald);
-  font-size: clamp(1.08rem, 2vw, 1.45rem);
-  font-weight: 650;
-}
-
-.summary {
-  max-width: 790px;
-  margin-bottom: 32px;
-  color: var(--muted-strong);
-  font-size: clamp(1rem, 1.45vw, 1.14rem);
-  line-height: 1.75;
-}
-
 .hero-actions,
 .contact-links,
 .location {
@@ -418,6 +432,7 @@ body:has(.hero-cinematic:not(.is-settled)) .site-header {
 .hero-actions {
   flex-wrap: wrap;
   gap: 18px;
+  justify-content: center;
 }
 
 .contact-links {
@@ -425,25 +440,59 @@ body:has(.hero-cinematic:not(.is-settled)) .site-header {
 }
 
 .contact-links a {
+  position: relative;
   display: flex;
-  min-height: 48px;
+  min-height: 52px;
   align-items: center;
   gap: 10px;
-  border-radius: 4px;
-  background: var(--emerald);
+  overflow: hidden;
+  border: 1px solid rgba(98, 230, 164, 0.52);
+  border-radius: 6px;
+  background:
+    linear-gradient(135deg, rgba(98, 230, 164, 0.96), rgba(53, 201, 135, 0.82)),
+    var(--emerald);
+  box-shadow:
+    0 0 0 1px rgba(53, 201, 135, 0.12),
+    0 18px 44px rgba(13, 92, 63, 0.22);
   color: #03130c;
-  padding: 0 18px;
-  font-weight: 800;
+  padding: 0 22px;
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  font-weight: 850;
   transition:
     background-color 180ms var(--ease-out),
-    translate 180ms var(--ease-out);
+    border-color 240ms var(--ease-out),
+    box-shadow 240ms var(--ease-out),
+    translate 240ms var(--ease-out);
+}
+
+.contact-links a::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    110deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.24) 44%,
+    transparent 58%
+  );
+  content: "";
+  opacity: 0;
+  translate: -120% 0;
+  transition:
+    opacity 240ms var(--ease-out),
+    translate 520ms var(--ease-out);
+}
+
+.contact-links a > * {
+  position: relative;
+  z-index: 1;
 }
 
 .location {
   gap: 8px;
   color: var(--muted);
-  font-family: "Cascadia Mono", Consolas, monospace;
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
   font-size: 0.82rem;
+  font-weight: 650;
 }
 
 .scroll-cue {
@@ -455,14 +504,46 @@ body:has(.hero-cinematic:not(.is-settled)) .site-header {
   align-items: center;
   gap: 10px;
   color: var(--muted);
-  font-family: "Cascadia Mono", Consolas, monospace;
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
   font-size: 0.76rem;
+  font-weight: 700;
   text-transform: uppercase;
 }
 
 .work-section,
 .timeline-section {
-  padding: clamp(90px, 12vw, 170px) 0;
+  padding: clamp(70px, 8vw, 112px) 0;
+}
+
+.section-transition {
+  display: grid;
+  width: min(calc(100% - (var(--page-gutter) * 2)), 520px);
+  height: 42px;
+  grid-template-columns: minmax(0, 1fr) 8px minmax(0, 1fr);
+  align-items: center;
+  gap: 12px;
+  margin-inline: auto;
+}
+
+.section-transition-line {
+  height: 1px;
+  background: rgba(98, 230, 164, 0.38);
+}
+
+.section-transition-line-left {
+  transform-origin: right;
+}
+
+.section-transition-line-right {
+  transform-origin: left;
+}
+
+.section-transition-marker {
+  width: 8px;
+  height: 8px;
+  border: 1px solid var(--emerald-bright);
+  background: rgba(13, 92, 63, 0.72);
+  box-shadow: 0 0 12px rgba(53, 201, 135, 0.34);
 }
 
 .work-intro {
@@ -478,8 +559,8 @@ body:has(.hero-cinematic:not(.is-settled)) .site-header {
 .skills-heading h2,
 .contact-section h2 {
   margin-bottom: 0;
-  font-size: clamp(2.6rem, 6.8vw, 6rem);
-  line-height: 0.98;
+  font-size: clamp(3rem, 6.5vw, 6rem);
+  line-height: 0.92;
   letter-spacing: 0;
 }
 
@@ -495,8 +576,9 @@ body:has(.hero-cinematic:not(.is-settled)) .site-header {
 .work-context p:first-child {
   margin-bottom: 10px;
   color: var(--foreground);
-  font-family: "Cascadia Mono", Consolas, monospace;
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
   font-size: 0.82rem;
+  font-weight: 700;
 }
 
 .work-context p:last-child {
@@ -517,7 +599,9 @@ body:has(.hero-cinematic:not(.is-settled)) .site-header {
   gap: 24px;
   align-items: start;
   border-bottom: 1px solid var(--line);
+  background: rgba(5, 7, 6, 0.58);
   padding: 28px 8px;
+  backdrop-filter: blur(9px);
   transition:
     background-color 220ms var(--ease-out),
     border-color 220ms var(--ease-out);
@@ -526,8 +610,9 @@ body:has(.hero-cinematic:not(.is-settled)) .site-header {
 .chapter-index,
 .skill-group-header span {
   color: var(--emerald);
-  font-family: "Cascadia Mono", Consolas, monospace;
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
   font-size: 0.76rem;
+  font-weight: 800;
 }
 
 .work-chapter h3 {
@@ -657,11 +742,11 @@ body:has(.hero-cinematic:not(.is-settled)) .site-header {
 }
 
 .timeline-entry-left .timeline-node {
-  left: 32%;
+  left: 43%;
 }
 
 .timeline-entry-right .timeline-node {
-  left: 68%;
+  left: 57%;
 }
 
 .timeline-entry.is-active .timeline-node {
@@ -674,8 +759,9 @@ body:has(.hero-cinematic:not(.is-settled)) .site-header {
   display: grid;
   align-content: start;
   gap: 7px;
-  font-family: "Cascadia Mono", Consolas, monospace;
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
   font-size: 0.75rem;
+  font-weight: 650;
 }
 
 .timeline-meta span {
@@ -698,9 +784,36 @@ body:has(.hero-cinematic:not(.is-settled)) .site-header {
   font-weight: 700;
 }
 
-.timeline-card > p:last-child {
+.timeline-description {
   margin-bottom: 0;
   color: var(--muted);
+}
+
+.timeline-technologies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 20px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.timeline-technologies li {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: rgba(244, 247, 245, 0.045);
+  color: var(--emerald);
+}
+
+.technology-icon {
+  width: 17px;
+  height: 17px;
+  fill: currentColor;
+  stroke-width: 1.8;
 }
 
 .skills-section {
@@ -782,10 +895,12 @@ body:has(.hero-cinematic:not(.is-settled)) .site-header {
 }
 
 .skill-group-header {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
+  display: grid;
+  grid-template-columns: 2rem minmax(0, 1fr);
+  align-items: baseline;
+  gap: 12px;
   margin-bottom: 28px;
+  text-align: left;
 }
 
 .skill-group h3 {
@@ -824,10 +939,10 @@ body:has(.hero-cinematic:not(.is-settled)) .site-header {
 
 .contact-section {
   display: flex;
-  min-height: 90svh;
+  min-height: 76svh;
   flex-direction: column;
   justify-content: center;
-  padding: 110px 0 60px;
+  padding: 82px 0 54px;
 }
 
 .contact-section h2 {
@@ -866,6 +981,7 @@ body:has(.hero-cinematic:not(.is-settled)) .site-header {
 .contact-list a {
   min-height: 48px;
   color: var(--emerald-bright);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
   font-size: clamp(0.92rem, 1.4vw, 1.08rem);
   font-weight: 750;
 }
@@ -878,8 +994,9 @@ body:has(.hero-cinematic:not(.is-settled)) .site-header {
 
 .contact-footer > span {
   color: var(--muted);
-  font-family: "Cascadia Mono", Consolas, monospace;
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
   font-size: 0.78rem;
+  font-weight: 650;
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -894,7 +1011,18 @@ body:has(.hero-cinematic:not(.is-settled)) .site-header {
 
   .contact-links a:hover {
     translate: 0 -2px;
-    background: var(--emerald-bright);
+    border-color: rgba(244, 247, 245, 0.42);
+    background:
+      linear-gradient(135deg, rgba(126, 245, 185, 1), rgba(53, 201, 135, 0.92)),
+      var(--emerald-bright);
+    box-shadow:
+      0 0 0 1px rgba(98, 230, 164, 0.22),
+      0 22px 58px rgba(13, 92, 63, 0.34);
+  }
+
+  .contact-links a:hover::after {
+    opacity: 1;
+    translate: 120% 0;
   }
 
   .work-chapter:hover {
@@ -957,7 +1085,7 @@ body:has(.hero-cinematic:not(.is-settled)) .site-header {
     position: relative;
     height: auto;
     overflow: visible;
-    padding: 100px var(--page-gutter);
+    padding: 78px var(--page-gutter);
   }
 
   .skills-track {
@@ -996,7 +1124,7 @@ body:has(.hero-cinematic:not(.is-settled)) .site-header {
 
   .hero h1 {
     max-width: 100%;
-    font-size: clamp(3.4rem, 18vw, 5.5rem);
+    font-size: clamp(3.6rem, 17vw, 5.8rem);
   }
 
   .hero-name {
@@ -1006,14 +1134,6 @@ body:has(.hero-cinematic:not(.is-settled)) .site-header {
   .hero-name::after {
     inset: 18% 2%;
     filter: blur(38px);
-  }
-
-  .role {
-    line-height: 1.45;
-  }
-
-  .summary {
-    max-width: 38rem;
   }
 
   .hero-actions,
@@ -1031,7 +1151,7 @@ body:has(.hero-cinematic:not(.is-settled)) .site-header {
 
   .work-section,
   .timeline-section {
-    padding: 88px 0;
+    padding: 68px 0;
     text-align: center;
   }
 
@@ -1102,15 +1222,16 @@ body:has(.hero-cinematic:not(.is-settled)) .site-header {
   .skill-group {
     min-height: 0;
     padding: 22px;
+    text-align: left;
   }
 
   .skill-group-header {
-    justify-content: center;
+    justify-content: initial;
   }
 
   .skill-group li {
-    justify-content: center;
-    text-align: center;
+    justify-content: flex-start;
+    text-align: left;
   }
 
   .skill-card-fill {
@@ -1123,8 +1244,8 @@ body:has(.hero-cinematic:not(.is-settled)) .site-header {
 
   .depth-icon-mobile {
     display: block;
-    width: 34px;
-    height: 34px;
+    width: 42px;
+    height: 42px;
   }
 
   .depth-icon-mobile .depth-icon-drift {

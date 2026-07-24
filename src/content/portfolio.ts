@@ -26,6 +26,7 @@ export type ExperienceItem = {
   context?: string;
   highlights: string[];
   focusAreas?: string[];
+  technologies?: string[];
 };
 
 export type EducationItem = {
@@ -135,14 +136,14 @@ export const portfolioContent = {
       role: "Frontend Developer",
       period: "September 2024 - Present",
       context:
-        "Multilingual admin dashboard for a construction and field-work management SaaS platform used by office staff to review, edit, invoice, and journal tasks submitted from a companion worker mobile app.",
+        "Admin dashboard for office teams managing construction and field-work tasks submitted through a companion worker app.",
       highlights: [
-        "Built core invoice, regie/payroll, and journal-generation workflows end to end using Next.js, React, TypeScript, server actions, and form validation, including safeguards that prevent already-billed tasks from being re-invoiced.",
-        "Developed production modules for materials tracking, employee management, task assignment, task history, CSV/data exports, and voice-report review.",
-        "Architected modular Redux Toolkit state management across projects, employees, tasks, employeeTasks, and blueprint features, using server-rendered hydration patterns instead of a monolithic global store.",
-        "Implemented internationalization with next-intl across 66 locales and maintained English source strings for automated translation propagation.",
-        "Authored a Cypress end-to-end test suite covering critical flows including login, project creation, invoicing, regie, journals, employee assignment, and voice reports.",
-        "Integrated AWS S3 presigned uploads for task photos/documents, Leaflet-based blueprint mapping, and JWT/NextAuth authentication with automatic session expiry handling.",
+        "Built invoicing, regie/payroll, and journal workflows with safeguards against re-billing completed tasks.",
+        "Built materials, employee, task, export, and voice-report modules.",
+        "Structured Redux Toolkit state by domain and hydrated it from server-rendered data.",
+        "Implemented next-intl across 66 locales and maintained source strings for automated translation.",
+        "Created Cypress coverage for login, projects, invoicing, regie, journals, assignments, and voice reports.",
+        "Integrated S3 uploads, Leaflet blueprint mapping, and session-expiry handling with JWT and NextAuth.",
       ],
       focusAreas: [
         "Operational workflows",
@@ -152,15 +153,26 @@ export const portfolioContent = {
         "End-to-end testing",
         "Uploads, mapping, and authentication",
       ],
+      technologies: [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Redux Toolkit",
+        "Cypress",
+        "AWS S3",
+        "Leaflet",
+        "NextAuth",
+      ],
     },
     {
       company: "Integrated Digital Systems (IDS)",
       role: "Full-Stack Developer",
       period: "August 2023 - October 2023",
       highlights: [
-        "Developed a course-registration web application for IDS Academy using HTML, CSS, JavaScript, PHP, and MySQL.",
-        "Designed the database schema and implemented registration workflows, form validation, and persistent data storage.",
+        "Built a course-registration application for IDS Academy.",
+        "Designed its database schema, registration flow, validation, and persistent storage.",
       ],
+      technologies: ["HTML5", "CSS3", "JavaScript", "PHP", "MySQL"],
     },
   ],
   education: [
@@ -175,14 +187,13 @@ export const portfolioContent = {
   projects: [
     {
       name: "Clothes Store E-Commerce Site",
-      description:
-        "Built a full-stack storefront with an AI chatbot using HTML, CSS, PHP, JavaScript, and SQL.",
+      description: "Built a full-stack storefront with an AI chatbot.",
       stack: ["HTML", "CSS", "PHP", "JavaScript", "SQL"],
     },
     {
       name: "Insurance Company Database",
       description:
-        "Modeled and implemented a relational Oracle SQL database, including entity-relationship design and schema implementation.",
+        "Modeled and implemented an insurance database from entity relationships through schema.",
       stack: ["Oracle SQL", "Entity-relationship design", "Schema implementation"],
     },
   ],

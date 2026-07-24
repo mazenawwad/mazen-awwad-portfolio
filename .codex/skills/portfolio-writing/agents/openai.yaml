@@ -1,0 +1,8 @@
+interface:
+  display_name: "Portfolio Writing"
+  short_description: "Clear, credible, CV-backed portfolio copy"
+  brand_color: "#35C987"
+  default_prompt: "Use $portfolio-writing to improve this portfolio copy without adding unsupported claims."
+
+policy:
+  allow_implicit_invocation: true

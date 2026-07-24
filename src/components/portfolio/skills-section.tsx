@@ -45,7 +45,7 @@ export function SkillsSection({ skillGroups }: SkillsSectionProps) {
         <ScrollReveal>
           <header className="skills-heading">
             <p className="eyebrow">Technical range</p>
-            <h2>Skills used across production work.</h2>
+            <h2>Tools behind the work.</h2>
           </header>
         </ScrollReveal>
         <motion.div

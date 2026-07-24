@@ -2,6 +2,7 @@
 
 import { motion } from "motion/react";
 import type { TimelineEntry } from "./timeline-track";
+import { TimelineTechnologies } from "./timeline-technologies";
 
 type TimelineEntryCardProps = {
   entry: TimelineEntry;
@@ -33,8 +34,13 @@ export function TimelineEntryCard({
           <time>{entry.period}</time>
         </div>
         <h3>{entry.title}</h3>
-        <p className="timeline-subtitle">{entry.subtitle}</p>
-        <p>{entry.description}</p>
+        {entry.subtitle ? (
+          <p className="timeline-subtitle">{entry.subtitle}</p>
+        ) : null}
+        <p className="timeline-description">{entry.description}</p>
+        {entry.technologies?.length ? (
+          <TimelineTechnologies technologies={entry.technologies} />
+        ) : null}
       </article>
     </motion.li>
   );

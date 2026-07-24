@@ -56,3 +56,6 @@ Use its `CATALOG.md` to find available skills, especially:
 - `deployment-patterns`
 
 The Emil design engineering skill from that repo is the current local design reference unless Mazen provides a newer source.
+
+Use the project-local `portfolio-writing` skill for all visible copy and
+metadata changes. It must preserve the CV-only content restriction.

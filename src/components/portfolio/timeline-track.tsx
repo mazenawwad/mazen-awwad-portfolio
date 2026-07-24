@@ -13,9 +13,10 @@ import { TimelinePath } from "./timeline-path";
 export type TimelineEntry = {
   period: string;
   title: string;
-  subtitle: string;
+  subtitle?: string;
   description: string;
   kind: string;
+  technologies?: string[];
 };
 
 type TimelineTrackProps = {
@@ -28,11 +29,11 @@ export function TimelineTrack({ entries }: TimelineTrackProps) {
   const [activeIndex, setActiveIndex] = useState(0);
   const { scrollYProgress } = useScroll({
     target: trackRef,
-    offset: ["start 64%", "end 38%"],
+    offset: ["start 72%", "end 46%"],
   });
   const progress = useSpring(scrollYProgress, {
-    stiffness: 105,
-    damping: 30,
+    stiffness: 120,
+    damping: 28,
     restDelta: 0.001,
   });
 

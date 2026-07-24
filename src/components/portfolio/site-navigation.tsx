@@ -84,7 +84,7 @@ export function SiteNavigation({ email }: SiteNavigationProps) {
       </nav>
       <a className="nav-contact" href={`mailto:${email}`}>
         <Mail aria-hidden="true" size={16} />
-        <span>Contact</span>
+        <span>Email</span>
       </a>
     </header>
   );

@@ -13,7 +13,7 @@ const TOP_OFFSET = 130;
 
 function buildTimelinePath(entryCount: number) {
   const points = Array.from({ length: entryCount }, (_, index) => ({
-    x: index % 2 === 0 ? 320 : 680,
+    x: index % 2 === 0 ? 430 : 570,
     y: TOP_OFFSET + index * ROW_HEIGHT,
   }));
 

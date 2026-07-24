@@ -1,14 +1,12 @@
 "use client";
 
-import type { Profile, LinkItem } from "@/content/portfolio";
-import { ArrowDown, MapPin } from "lucide-react";
+import type { Profile } from "@/content/portfolio";
+import { ArrowDown } from "lucide-react";
 import { motion, useReducedMotion } from "motion/react";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
-import { ContactLinks } from "./contact-links";
 
 type HeroProps = {
   profile: Profile;
-  links: LinkItem[];
 };
 
 const supportingVariants = {
@@ -16,8 +14,7 @@ const supportingVariants = {
   visible: { opacity: 1, y: 0, pointerEvents: "auto" as const },
 };
 
-export function Hero({ profile, links }: HeroProps) {
-  const emailLinks = links.filter((link) => link.kind === "email");
+export function Hero({ profile }: HeroProps) {
   const nameRef = useRef<HTMLHeadingElement>(null);
   const shouldReduceMotion = useReducedMotion();
   const [isReady, setIsReady] = useState(false);
@@ -53,7 +50,7 @@ export function Hero({ profile, links }: HeroProps) {
       return;
     }
 
-    const settleTimer = window.setTimeout(() => setIsSettled(true), 1800);
+    const settleTimer = window.setTimeout(() => setIsSettled(true), 1650);
     const accelerateIntro = () => {
       if (window.scrollY > 4) {
         setIsSettled(true);
@@ -75,14 +72,14 @@ export function Hero({ profile, links }: HeroProps) {
       className={`hero hero-cinematic${isReady ? " is-ready" : ""}${showFinalState ? " is-settled" : ""}`}
     >
       <div className="hero-copy">
-        <motion.p
+        {/* <motion.p
           className="eyebrow hero-supporting"
           animate={showFinalState ? "visible" : "hidden"}
           variants={supportingVariants}
           transition={{ duration: 0.7, delay: 0.62 }}
         >
-          Frontend developer · Beirut, Lebanon
-        </motion.p>
+          Frontend Developer · Beirut, Lebanon
+        </motion.p> */}
         <motion.h1
           ref={nameRef}
           className="hero-name"
@@ -114,28 +111,12 @@ export function Hero({ profile, links }: HeroProps) {
           }
           transition={
             showFinalState
-              ? { duration: 1.6, ease: [0.16, 1, 0.3, 1] }
+              ? { duration: 1.45, ease: [0.16, 1, 0.3, 1] }
               : { duration: 3.8, ease: "easeInOut", repeat: Infinity }
           }
         >
           {profile.name}
         </motion.h1>
-        <motion.div
-          className="hero-details hero-supporting"
-          animate={showFinalState ? "visible" : "hidden"}
-          variants={supportingVariants}
-          transition={{ duration: 0.78, delay: 0.82 }}
-        >
-          <p className="role">{profile.role}</p>
-          <p className="summary">{profile.summary}</p>
-          <div className="hero-actions">
-            <ContactLinks links={emailLinks} />
-            <span className="location">
-              <MapPin aria-hidden="true" size={17} />
-              {profile.location}
-            </span>
-          </div>
-        </motion.div>
       </div>
       <motion.a
         className="scroll-cue hero-supporting"
