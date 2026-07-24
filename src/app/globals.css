@@ -546,33 +546,6 @@ body:has(.hero-cinematic:not(.is-settled)) .site-header {
 }
 
 @media (min-width: 901px) {
-  .work-chapter:nth-child(even) {
-    grid-template-columns: 24px minmax(0, 1fr) minmax(180px, 0.55fr) 70px;
-    text-align: right;
-  }
-
-  .work-chapter:nth-child(even) > svg {
-    grid-column: 1;
-    grid-row: 1;
-    rotate: 90deg;
-  }
-
-  .work-chapter:nth-child(even) > p {
-    grid-column: 2;
-    grid-row: 1;
-    justify-self: end;
-  }
-
-  .work-chapter:nth-child(even) > h3 {
-    grid-column: 3;
-    grid-row: 1;
-  }
-
-  .work-chapter:nth-child(even) > .chapter-index {
-    grid-column: 4;
-    grid-row: 1;
-  }
-
   .timeline-section > .section-heading {
     margin-left: auto;
     text-align: right;
