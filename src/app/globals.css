@@ -1035,7 +1035,7 @@ body:has(.hero-cinematic:not(.is-settled)) .site-header {
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1023px) {
   .work-intro {
     grid-template-columns: 1fr;
   }
@@ -1054,9 +1054,7 @@ body:has(.hero-cinematic:not(.is-settled)) .site-header {
   }
 
   .timeline-curve {
-    left: 50%;
-    width: 82px;
-    translate: -50% 0;
+    display: none;
   }
 
   .timeline-entry,
@@ -1074,7 +1072,7 @@ body:has(.hero-cinematic:not(.is-settled)) .site-header {
 
   .timeline-entry-left .timeline-node,
   .timeline-entry-right .timeline-node {
-    left: 50%;
+    display: none;
   }
 
   .skills-section {
