@@ -8,17 +8,20 @@ type TimelineEntryCardProps = {
   entry: TimelineEntry;
   index: number;
   isActive: boolean;
+  nodeRef?: (element: HTMLLIElement | null) => void;
 };
 
 export function TimelineEntryCard({
   entry,
   index,
   isActive,
+  nodeRef,
 }: TimelineEntryCardProps) {
   const side = index % 2 === 0 ? "left" : "right";
 
   return (
     <motion.li
+      ref={nodeRef}
       className={`timeline-entry timeline-entry-${side}${isActive ? " is-active" : ""}`}
       animate={{
         opacity: isActive ? 1 : 0.48,

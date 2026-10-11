@@ -26,7 +26,7 @@ const playwrightIcon: SimpleIcon = {
   title: "Playwright",
   slug: "playwright",
   hex: "2EAD33",
-  source: "https://playwright.dev",
+  source: "https://playwri  ght.dev",
   svg: "",
   path: "",
 };
