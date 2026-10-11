@@ -182,7 +182,7 @@ main :where(h1, h2, h3, p, a, span, li) {
   width: clamp(46px, 5.4vw, 88px);
   height: clamp(46px, 5.4vw, 88px);
   color: var(--icon-color);
-  filter: drop-shadow(0 0 12px var(--icon-glow));
+  filter: drop-shadow(0 0 15px var(--icon-glow));
   translate: -50% -50%;
   transform-style: preserve-3d;
   transition:
@@ -196,7 +196,7 @@ body:has(.hero-cinematic:not(.is-settled)) .depth-icon,
 body.is-at-page-top .depth-icon {
   top: var(--intro-icon-y);
   left: var(--intro-icon-x);
-  filter: drop-shadow(0 0 20px var(--icon-glow));
+  filter: drop-shadow(0 0 24px var(--icon-glow));
 }
 
 .depth-icon-drift {
@@ -1238,17 +1238,18 @@ body:has(.hero-cinematic:not(.is-settled)) .site-header {
   }
 
   .depth-icon {
-    display: none;
-  }
-
-  .depth-icon-mobile {
     display: block;
-    width: 42px;
-    height: 42px;
+    top: var(--mobile-icon-y);
+    left: var(--mobile-icon-x);
+    width: 62px;
+    height: 62px;
+    filter: drop-shadow(0 0 18px var(--icon-glow));
   }
 
-  .depth-icon-mobile .depth-icon-drift {
-    animation: none;
+  body:has(.hero-cinematic:not(.is-settled)) .depth-icon,
+  body.is-at-page-top .depth-icon {
+    top: var(--mobile-intro-icon-y);
+    left: var(--mobile-intro-icon-x);
   }
 
   .contact-section {
