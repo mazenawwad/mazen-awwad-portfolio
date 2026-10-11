@@ -14,6 +14,7 @@ import {
   siGit,
   siJavascript,
   siNextdotjs,
+  siPrisma,
   siReact,
   siRedux,
   siTailwindcss,
@@ -21,8 +22,18 @@ import {
   type SimpleIcon,
 } from "simple-icons";
 
+const playwrightIcon: SimpleIcon = {
+  title: "Playwright",
+  slug: "playwright",
+  hex: "2EAD33",
+  source: "https://playwright.dev",
+  svg: "",
+  path: "",
+};
+
 type DepthIconConfig = {
   icon: SimpleIcon;
+  assetSrc?: string;
   label: string;
   x: number;
   y: number;
@@ -47,6 +58,8 @@ const depthIcons: DepthIconConfig[] = [
   { icon: siTailwindcss, label: "Tailwind CSS", x: 13, y: 76, introX: 36, introY: 28, minScale: 0.68, maxScale: 1.16, travel: 56, driftX: 8, driftY: 9, duration: 10.5, phase: 0.36, mobile: false },
   { icon: siCypress, label: "Cypress", x: 73, y: 91, introX: 33, introY: 75, minScale: 0.7, maxScale: 1.14, travel: 42, driftX: 7, driftY: 8, duration: 9.5, phase: 0.56, mobile: false },
   { icon: siGit, label: "Git", x: 24, y: 94, introX: 67, introY: 75, minScale: 0.72, maxScale: 1.18, travel: 46, driftX: 10, driftY: 7, duration: 11.5, phase: 0.72, mobile: true },
+  { icon: siPrisma, label: "Prisma", x: 42, y: 11, introX: 50, introY: 23, minScale: 0.66, maxScale: 1.12, travel: 50, driftX: 8, driftY: 7, duration: 9.8, phase: 0.14, mobile: false },
+  { icon: playwrightIcon, assetSrc: "/playwright-logo.svg", label: "Playwright", x: 59, y: 88, introX: 50, introY: 80, minScale: 0.68, maxScale: 1.16, travel: 44, driftX: 9, driftY: 8, duration: 10.8, phase: 0.91, mobile: false },
 ];
 
 type AnimatedDepthIconProps = {
@@ -118,9 +131,13 @@ function AnimatedDepthIcon({
       style={{ ...style, opacity, rotate, scale, y }}
     >
       <span className="depth-icon-drift">
-        <svg viewBox="0 0 24 24">
-          <path d={config.icon.path} fill={brandColor} />
-        </svg>
+        {config.assetSrc ? (
+          <img src={config.assetSrc} alt="" />
+        ) : (
+          <svg viewBox="0 0 24 24">
+            <path d={config.icon.path} fill={brandColor} />
+          </svg>
+        )}
       </span>
     </motion.span>
   );

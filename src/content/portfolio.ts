@@ -55,12 +55,12 @@ export type PortfolioContent = {
 export const portfolioContent = {
   profile: {
     name: "Mazen Awwad",
-    role: "Frontend Developer | React | Next.js | TypeScript",
+    role: "Software Engineer | React | Next.js | HTML | CSS | Typescript | JavaScript",
     location: "Beirut, Lebanon",
     email: "mazenawwad2003@gmail.com",
     phone: "+961 70 357 253",
     summary:
-      "Frontend Developer specializing in React, Next.js, and TypeScript, with 2+ years of experience building production SaaS and full-stack web applications. Experienced in component-driven UI, Redux Toolkit state management, REST API integration, authentication, internationalization, Cypress end-to-end testing, and responsive accessible interfaces. Core contributor to a multi-tenant construction-management platform used for invoicing, payroll submissions, journals, employee workflows, materials tracking, and field-report review.",
+      "Software specializing in React, Next.js, and TypeScript, with 2+ years of experience building production SaaS and full-stack web applications. Experienced in component-driven UI, Redux Toolkit state management, REST API integration, authentication, internationalization, Cypress end-to-end testing, and responsive accessible interfaces. Core contributor to a multi-tenant construction-management platform used for invoicing, payroll submissions, journals, employee workflows, materials tracking, and field-report review.",
   },
   skillGroups: [
     {
@@ -80,6 +80,18 @@ export const portfolioContent = {
       ],
     },
     {
+      title: "Backend & Database",
+      skills: [
+        "Prisma ORM",
+        "Prisma Client",
+        "Prisma Schema",
+        "Prisma Migrate",
+        "Prisma Studio",
+        "Data Modeling",
+        "Relations & Joins",
+      ],
+    },
+    {
       title: "UI and Styling",
       skills: [
         "Tailwind CSS",
@@ -95,6 +107,8 @@ export const portfolioContent = {
     {
       title: "Testing",
       skills: [
+        "Vitest",
+        "Playwright",
         "Cypress",
         "end-to-end test automation",
         "manual QA",
@@ -103,7 +117,12 @@ export const portfolioContent = {
     },
     {
       title: "Backend and Data",
-      skills: ["Node.js server actions", "REST APIs", "JWT authentication", "NextAuth"],
+      skills: [
+        "Node.js server actions",
+        "REST APIs",
+        "JWT authentication",
+        "NextAuth",
+      ],
     },
     {
       title: "Cloud and Tools",
@@ -133,7 +152,7 @@ export const portfolioContent = {
     {
       company: "Hanz",
       product: "AdminApp",
-      role: "Frontend Developer",
+      role: "Software Engineer",
       period: "September 2024 - Present",
       context:
         "Admin dashboard for office teams managing construction and field-work tasks submitted through a companion worker app.",
@@ -194,7 +213,11 @@ export const portfolioContent = {
       name: "Insurance Company Database",
       description:
         "Modeled and implemented an insurance database from entity relationships through schema.",
-      stack: ["Oracle SQL", "Entity-relationship design", "Schema implementation"],
+      stack: [
+        "Oracle SQL",
+        "Entity-relationship design",
+        "Schema implementation",
+      ],
     },
   ],
   links: [

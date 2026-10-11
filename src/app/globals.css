@@ -208,7 +208,8 @@ body.is-at-page-top .depth-icon {
   will-change: transform;
 }
 
-.depth-icon svg {
+.depth-icon svg,
+.depth-icon img {
   display: block;
   width: 100%;
   height: 100%;

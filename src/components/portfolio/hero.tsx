@@ -78,7 +78,7 @@ export function Hero({ profile }: HeroProps) {
           variants={supportingVariants}
           transition={{ duration: 0.7, delay: 0.62 }}
         >
-          Frontend Developer · Beirut, Lebanon
+          Software Engineer · Beirut, Lebanon
         </motion.p> */}
         <motion.h1
           ref={nameRef}

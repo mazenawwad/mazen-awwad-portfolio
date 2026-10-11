@@ -18,9 +18,9 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Mazen Awwad | Frontend Developer",
+  title: "Mazen Awwad | Software Engineer",
   description:
-    "Frontend Developer specializing in React, Next.js, TypeScript, production SaaS, internationalization, Cypress testing, and accessible responsive interfaces.",
+    "Software Engineer specializing in React, Next.js, HTML, CSS, TypeScript, Javascript, production SaaS, internationalization, Cypress testing, and accessible responsive interfaces.",
   icons: {
     icon: [{ url: "/icon.png?v=sniff-1", type: "image/png" }],
   },

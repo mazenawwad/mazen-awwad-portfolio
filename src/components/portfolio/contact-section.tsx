@@ -33,7 +33,7 @@ export function ContactSection({ links, profile }: ContactSectionProps) {
     <footer id="contact" className="contact-section">
       <ScrollReveal>
         <p className="eyebrow">Contact</p>
-        <h2>Let&apos;s talk about frontend work.</h2>
+        <h2>Let&apos;s talk about software.</h2>
       </ScrollReveal>
       <ScrollReveal className="contact-footer" delay={0.05}>
         <ul className="contact-list">
